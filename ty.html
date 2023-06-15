@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Thank You Flashcards</title>
+    <style>
+        /* CSS styles for the form and flashcard */
+        /* Add your own styles here */
+    </style>
+</head>
+<body>
+    <h1>Thank You Flashcards</h1>
+    <form id="nameForm">
+        <label for="nameInput">Enter your name:</label>
+        <input type="text" id="nameInput" required>
+        <button type="submit">Show Flashcard</button>
+    </form>
+
+    <div id="flashcard" style="display: none;">
+        <h2>Thank You!</h2>
+        <p id="message"></p>
+    </div>
+
+    <script>
+        // JavaScript code to handle form submission and display flashcard
+        document.getElementById("nameForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Retrieve the name entered in the form
+            var name = document.getElementById("nameInput").value;
+
+            // Generate the personalized message
+            var message = "Thank you, " + name + "!";
+
+            // Update the flashcard with the personalized message
+            document.getElementById("message").textContent = message;
+
+            // Show the flashcard
+            document.getElementById("flashcard").style.display = "block";
+        });
+    </script>
+</body>
+</html>
