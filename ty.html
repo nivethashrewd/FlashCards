@@ -1,18 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Thank You CRM Team!</title>
+    <title>Thank You Flashcards</title>
     <style>
         /* CSS styles for the form and flashcard */
+        body {
+            background-color: black;
+            color: white;
+        }
+        
+        h1 {
+            color: green;
+        }
+        
+        #flashcard {
+            background-color: green;
+            padding: 20px;
+        }
+        
+        input[type="text"] {
+            background-color: #aaa5a5;
+            color: black;
+            padding: 5px;
+        }
+        
         /* Add your own styles here */
     </style>
 </head>
 <body>
-    <h1>Thank You CRM Team!🙏</h1>
+    <h1><center>Thank You CRM Team🌸</center></h1>
     <form id="nameForm">
         <label for="nameInput">Enter your name:</label>
         <input type="text" id="nameInput" required>
-        <button type="submit">Show</button>
+        <label for="passwordInput">Password (First three letters of your name):</label>
+        <input type="password" id="passwordInput" required>
+        <button type="submit">Show Flashcard</button>
     </form>
 
     <div id="flashcard" style="display: none;">
@@ -28,14 +50,23 @@
             // Retrieve the name entered in the form
             var name = document.getElementById("nameInput").value;
 
+            // Retrieve the password entered in the form
+            var password = document.getElementById("passwordInput").value;
+
             // Generate the personalized message
             var message = "Thank you, " + name + "!";
 
-            // Update the flashcard with the personalized message
-            document.getElementById("message").textContent = message;
+            // Validate the password
+            var expectedPassword = name.substring(0, 3).toLowerCase();
+            if (password === expectedPassword) {
+                // Update the flashcard with the personalized message
+                document.getElementById("message").textContent = message;
 
-            // Show the flashcard
-            document.getElementById("flashcard").style.display = "block";
+                // Show the flashcard
+                document.getElementById("flashcard").style.display = "block";
+            } else {
+                alert("Incorrect password. Please try again.");
+            }
         });
     </script>
 </body>
