@@ -19,7 +19,7 @@
         }
         
         input[type="text"] {
-            background-color: #aaa5a5;
+            background-color: #888383;
             color: black;
             padding: 5px;
         }
@@ -28,12 +28,10 @@
     </style>
 </head>
 <body>
-    <h1><center>Thank You CRM Team🌸</center></h1>
+    <h1>Thank You CRM Team🌸🎊</h1>
     <form id="nameForm">
         <label for="nameInput">Enter your name:</label>
         <input type="text" id="nameInput" required>
-        <label for="passwordInput">Password (First three letters of your name):</label>
-        <input type="password" id="passwordInput" required>
         <button type="submit">Show Flashcard</button>
     </form>
 
@@ -50,23 +48,23 @@
             // Retrieve the name entered in the form
             var name = document.getElementById("nameInput").value;
 
-            // Retrieve the password entered in the form
-            var password = document.getElementById("passwordInput").value;
-
-            // Generate the personalized message
-            var message = "Thank you, " + name + "!";
-
-            // Validate the password
-            var expectedPassword = name.substring(0, 3).toLowerCase();
-            if (password === expectedPassword) {
-                // Update the flashcard with the personalized message
-                document.getElementById("message").textContent = message;
-
-                // Show the flashcard
-                document.getElementById("flashcard").style.display = "block";
+            // Generate the personalized message based on the user's name
+            var message;
+            if (name === "Raksha") {
+                message = "Thank you", +name, "You're awesome!";
+            } else if (name === "Rajiv") {
+                message = "Thank you", +name, "You're my guru in sfmc!";
+            } else if (name === "Yan") {
+                message = "Thank you", +name, "You're cute!";
             } else {
-                alert("Incorrect password. Please try again.");
+                message = "Thank you, " + name + "!"; // Default message
             }
+
+            // Update the flashcard with the personalized message
+            document.getElementById("message").textContent = message;
+
+            // Show the flashcard
+            document.getElementById("flashcard").style.display = "block";
         });
     </script>
 </body>
